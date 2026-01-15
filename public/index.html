@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>A1 Fall 2025</title>
+    <link href="global.css" rel="stylesheet" />
+
+    <!-- Run scripts after data is entered-->
+    <script src="modal.js" defer></script>
+
+    <!-- <script>window.alert("Hello world!");
+        alert("Hello world!");</script> -->
+
+</head>
+
+<body>
+    <header>
+        <h1>Using the Browser Inspector</h1>
+    </header>
+    <main>
+        <ol>
+        <li>Fill in and submit each form below.</li>
+        <li>Document responses for each form by observing what you see in the 
+             browser window's address bar,
+             viewport/screen, and the 
+             <strong>Inspect</strong> > <strong>Network</strong>, <strong>Console</strong>, and <strong>Elements</strong> tabs.
+        </li>
+        <li>Refresh the page to see what happens. 
+            Use shift-refresh to clear the browser cache. </li>
+        <li>When all five popups are visible with accurate data, 
+            and you downloaded the .HAR file, then 
+            close the Inspector and 
+            <code>ctl-p</code> or <code>⌘-p</code> to print to a PDF file.
+        </li>
+    </ol>
+    
+<!-- A. GET request -->       
+<section id="gets">
+    <div class="modal" ><!-- dynamic results display here --></div>
+    <form id="getRequests" action="/get-request" method="GET"> 
+    <fieldset>
+        <legend>A. GET Request</legend>
+        <p>
+            <label for="name">First and Last Name</label>
+            <input type="text" name="name" size="30" maxlength="100" required="required">
+        </p>
+
+        <p>Where does your data display?</p>
+        <p>
+            <label for="url"> 
+            <input type="checkbox" name="whereA" id="url" value="URL" >
+            in the URL</label>
+        </p>
+        <p>
+            <label for="alert"> 
+            <input type="checkbox" name="whereA" id="alert"  value=" Alert">
+            in an Alert</label>
+        </p>
+        <p>
+            <label for="headers"> 
+            <input type="checkbox" name="whereA" id="headers"  value=" Inspector Network Headers">
+            Inspector Network Headers/Response</label>
+        </p>
+        <p>
+        <label for="screen"> 
+            <input type="checkbox" name="whereA" id="screen"  value=" Screen">
+            on the next screen</label>
+        </p>
+        <p>
+            <label for="popup"> 
+                <input type="checkbox" name="whereA" id="popup"  value=" Popup">
+                in a popup/modal</label>
+            </p>
+        <p>
+        <label for="unsureA"> 
+            <input type="checkbox" name="whereA" id="unsureA"  value=" Unsure">
+            I don't see it</label>
+        </p>
+        <button type="submit">Submit GET request</button>
+    </fieldset>
+    </form>
+</section>
+
+<!-- B. POST request -->       
+<section id="posts">
+    <div class="modal" ><!-- dynamic results display here --></div>
+    <form id="postRequests" action="/post-request" method="POST"> 
+    <fieldset>
+        <legend>B. POST Request</legend>
+        <p> 
+            <label for="email">OSU Email</label>
+            <input type="email" name="email" size="30" maxlength="100" required="required">
+        </p>
+
+        <p>Where does this data display?</p>
+        <p>
+            <label for="urlb"> 
+            <input type="checkbox" name="whereB" id="urlb" value="URL" >
+            in the URL</label>
+        </p>
+        <p>
+            <label for="alertb"> 
+            <input type="checkbox" name="whereB" id="alertb"  value=" Alert">
+            in an Alert</label>
+        </p>
+        <p>
+            <label for="headersb"> 
+            <input type="checkbox" name="whereB" id="headersb"  value=" Inspector Network Headers">
+            Inspector Network Headers/Response</label>
+        </p>
+        <p>
+            <label for="screenb"> 
+            <input type="checkbox" name="whereB" id="screenb"  value=" Screen">
+            on the next screen</label>
+        </p>
+        <p>
+            <label for="popupb"> 
+            <input type="checkbox" name="whereB" id="popupb"  value=" Popup">
+            in a popup/modal</label>
+        </p>
+        <p>
+            <label for="unsureB"> 
+            <input type="checkbox" name="whereB" id="unsureB"  value=" Unsure">
+            I don't see it</label>
+        </p>
+        <button type="submit">Submit POST request</button>
+    </fieldset>
+    </form>
+</section>
+
+<!-- C. Observe Console errors -->       
+<section id="errors">
+    <div class="modal" ><!-- dynamic results display here --></div>
+    <form id="console" action="/console" method="POST"> 
+    <fieldset>
+        <legend>C. Console</legend>
+
+        <p>Observe what you see in the Inspector's Console tab:</p>
+        <p>
+            <label for="missing"> 
+            <input type="checkbox" name="whereC" id="missing"  value=" missing file">
+            404 (not found) error</label>
+        </p>
+        <p>
+            <label for="reference"> 
+            <input type="checkbox" name="whereC" id="reference"  value=" reference error">
+            Uncaught ReferenceError</label>
+        </p>
+        <p>
+            <label for="syntax"> 
+            <input type="checkbox" name="whereC" id="syntax"  value=" syntax error">
+            SyntaxError</label>
+        </p>
+        <p>
+            <label for="unsureC"> 
+            <input type="checkbox" name="whereC" id="unsureC"  value=" Unsure">
+            I don't see any errors</label>
+        </p>
+        <button type="submit">Submit Console Details</button>
+    </fieldset>
+    </form>
+</section>
+
+<!-- D. Observe status codes -->       
+<section id="code">
+    <div class="modal" ><!-- dynamic results display here --></div>
+    <form id="codes" action="/codes" method="POST"> 
+    <fieldset>
+        <legend>D. Status Codes</legend>
+
+        <p>What are the Status Codes for each resource listed in the Network tab?</p>
+        <p>
+            <label for="index">post-request (index)</label>
+            <input type="number" name="index" id="index" >
+        </p>
+        <p>
+            <label for="modal">modal.js</label> 
+            <input type="number" name="modal" id="modal" >
+        </p>
+        <p>
+            <label for="css"> global.css</label>
+            <input type="number" name="css" id="css" >
+        </p>
+        <p>
+            <label for="favicon">favicon or image file</label>
+            <input type="number" name="favicon" id="favicon" >
+        </p>
+        <p>
+            <label for="unsureD"> 
+            <input type="checkbox" name="unsureD" id="unsureD"  value=" Unsure">
+            I don't see any status codes.</label>
+        </p>
+        <button type="submit">Submit Status Codes</button>
+    </fieldset>
+    </form>
+</section>
+
+<!-- E. Observe CSS items  -->
+<section id="style">
+    <div class="modal" ><!-- dynamic results display here --></div>
+    <form id="styles" action="/styles" method="POST"> 
+    <fieldset>
+        <legend>E. Styles</legend>
+
+        <p>From the Inspector's Elements tab, click on the &lt;body&gt; tag. 
+           Look beside or below the Elements area. What Styles do you see listed?  
+        </p>
+        <p>
+            <label for="bodyFont">&lt;body&gt; font-family</label>
+            <input type="text" name="bodyFont" id="bodyFont" >
+        </p>
+            <label for="bodyMargin">&lt;body&gt; margin</label>
+            <input type="text" name="bodyMargin" id="bodyMargin" >
+        </p>
+        <p>
+            <label for="unsureE"> 
+            <input type="checkbox" name="unsureE" id="unsureE"  value=" Unsure">
+            I don't see the Elements and/or Styles.</label>
+        </p>
+        <button type="submit">Submit Style Details</button>
+    </fieldset>
+    </form>
+</section>
+
+<!-- F. Download HAR files  -->
+<section id="style">
+    <div class="modal" ><!-- dynamic results display here --></div>
+    <form id="styles" action="/styles" method="POST"> 
+    <fieldset>
+        <legend>F. HAR files</legend>
+        <p>A HAR file captures the data from POST and GET requests. </p>
+        <img src="har-download-sensitive-data.png" alt="" title="" width="300" />
+        <p>From the Inspector's Download icon, choose <em>Export HAR with Sensitive Data</em>. </p>
+        <p>Save the .har file to the Module 1 directory on your hard drive.</p>
+    </fieldset>
+    </form>
+</section>
+
+<section><!-- This section intentionally left blank. --></section>
+
+<!-- DONE: print -->
+<section id="done">
+    <h2>Done?</h2>
+    <p>If all five popups are visible with accurate data, 
+        and you downloaded the .HAR file, then 
+        close the Inspector and 
+        <code>ctl-p</code> or <code>⌘-p</code> to print to a PDF file.
+    </p>
+</section>
+
+</main>
+<footer>
+    <p>CS 290 Assignment 1</p>
+    <p><img src="/image.jpg" alt="missing image for testing" title="What does the Network response show for this missing image?" /></p>
+</footer>
+
+</body>
+</html>
